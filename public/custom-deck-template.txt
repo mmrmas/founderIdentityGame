@@ -1,0 +1,28 @@
+# Custom deck template for Founder Identity Game
+# Save this file and upload it from the app to use a tailored set of cards.
+# Sections are optional; leave a section empty if you only want to override one part.
+
+identityPillars:
+# Format: title | short description | prompt | anchor1, anchor2, anchor3
+Cross-disciplinary Builder | Science, AI, and implementation belong in the same conversation. | Show how your range helps you connect research, technology, and real-world execution. | Science, AI, Implementation
+Practical Innovation | Ideas matter most when they become usable systems. | Explain how you move from possibility to something people can actually use. | Prototype, Workflow, Adoption
+
+challengeCards:
+Explain your mission in one sentence.
+Describe your product to a partner without jargon.
+Make the value of your work personal for the listener.
+
+audiences:
+Investor | scalability, timing, and narrative conviction
+Customer | usefulness, clarity, and outcomes
+Technical Cofounder | depth, judgment, and product direction
+
+constraints:
+Use no technical jargon.
+Explain in one sentence.
+Start with a customer need.
+
+antiBsClaims:
+I combine innovation with practical execution.
+My work creates real-world outcomes, not just ideas.
+I lead with curiosity and clarity while staying grounded.

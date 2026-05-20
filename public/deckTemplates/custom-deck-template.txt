@@ -1,0 +1,52 @@
+# Custom deck template for Founder Identity Game
+# Save this file and upload it from the app to use a tailored set of cards.
+# Sections are optional; leave a section empty if you only want to override one part.
+
+identityPillars:
+# Format: title | short description | prompt | anchor1, anchor2, anchor3
+Cross-disciplinary Builder | Science, AI, and implementation belong in the same conversation. | Show how your range helps you connect research, technology, and real-world execution. | Science, AI, Implementation
+Practical Innovation | Ideas matter most when they become usable systems. | Explain how you move from possibility to something people can actually use. | Prototype, Workflow, Adoption
+Societal Impact | Technology should create value beyond technical novelty. | Make the real-world relevance concrete, human, and believable. | Relevance, Access, Outcomes
+Empowerment | Strong systems create opportunities for other people. | Frame your work as a way to unlock agency, capability, or participation. | Opportunity, Confidence, Capability
+Curiosity & Adaptability | Continuous learning is part of the operating system. | Turn your self-directed path into evidence of resilience and growth. | Learning, Iteration, Range
+
+challengeCards:
+Explain your mission
+Explain your leadership style to a future employee
+Explain your value to a biotech partner
+Explain why you are different from a pure researcher
+Explain your vision without sounding unrealistic
+Explain your biggest leadership risk
+Explain why your self-taught path is a strength
+Explain what societal impact means concretely
+Explain what makes your founder story memorable
+Explain why now is the right moment
+
+audiences:
+Investor | scalability, timing, and narrative conviction
+Scientist | credibility, rigor, and intellectual honesty
+Employee | leadership, culture, and trust
+Corporate Partner | execution, reliability, and fit
+NGO / Global Health Org | societal value, access, and grounded impact
+Technical Cofounder | depth, judgment, and product direction
+Customer | usefulness, clarity, and outcomes
+
+constraints:
+Explain without using the word AI
+Explain in one sentence
+Use a real-world example
+Speak as if you are on stage
+Speak casually over coffee
+Use no technical jargon
+Start with a concrete problem
+End with why it matters
+
+antiBsClaims:
+I combine innovation with practical execution.
+I build across science, technology, and business.
+I care about societal impact.
+I empower people through better systems.
+My self-taught path is a strength.
+I can translate complex ideas into useful products.
+I adapt quickly when the context changes.
+I lead with curiosity and clarity.

@@ -1,3 +1,4 @@
 node_modules/
 dist/
 .DS_Store
+/public/deckTemplates/sam-deck-template.txt
