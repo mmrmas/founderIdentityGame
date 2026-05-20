@@ -150,6 +150,29 @@ select {
   border-radius: 8px;
 }
 
+.deck-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.deck-strip h2 {
+  margin-bottom: 6px;
+}
+
+.deck-strip p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.deck-strip .header-actions {
+  justify-content: flex-end;
+}
+
 .timer {
   --timer-deg: 360deg;
   display: grid;

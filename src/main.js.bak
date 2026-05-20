@@ -2,89 +2,81 @@ import './styles.css';
 
 const identityPillars = [
   {
-    title: 'Problem Solver',
-    short: 'You frame meaningful problems that matter across markets and missions.',
-    prompt: 'Describe the important problem your work solves and why it matters to people or systems.',
-    anchors: ['Problem', 'Need', 'Impact'],
+    title: 'Cross-disciplinary Builder',
+    short: 'Science, AI, and implementation belong in the same conversation.',
+    prompt: 'Show how your range helps you connect research, technology, and real-world execution.',
+    anchors: ['Science', 'AI', 'Implementation'],
   },
   {
-    title: 'Value Creator',
-    short: 'You build solutions that drive real outcomes and useful results.',
-    prompt: 'Explain the practical value your work delivers and how it changes things for the better.',
-    anchors: ['Value', 'Use', 'Benefit'],
+    title: 'Practical Innovation',
+    short: 'Ideas matter most when they become usable systems.',
+    prompt: 'Explain how you move from possibility to something people can actually use.',
+    anchors: ['Prototype', 'Workflow', 'Adoption'],
   },
   {
-    title: 'Trust Builder',
-    short: 'You earn belief through clarity, reliability, and evidence.',
-    prompt: 'Show how your work is grounded in real proof and dependable execution.',
-    anchors: ['Trust', 'Proof', 'Delivery'],
+    title: 'Societal Impact',
+    short: 'Technology should create value beyond technical novelty.',
+    prompt: 'Make the real-world relevance concrete, human, and believable.',
+    anchors: ['Relevance', 'Access', 'Outcomes'],
   },
   {
-    title: 'People-Centered',
-    short: 'You keep the human experience at the center of what you build.',
-    prompt: 'Explain how your work is shaped by real people, real needs, and real feedback.',
-    anchors: ['People', 'Need', 'Experience'],
+    title: 'Empowerment',
+    short: 'Strong systems create opportunities for other people.',
+    prompt: 'Frame your work as a way to unlock agency, capability, or participation.',
+    anchors: ['Opportunity', 'Confidence', 'Capability'],
   },
   {
-    title: 'Future-Focused',
-    short: 'You connect today’s progress to a better next step for the world.',
-    prompt: 'Describe why the timing is right and how your vision points toward a stronger future.',
-    anchors: ['Future', 'Timing', 'Trajectory'],
+    title: 'Curiosity & Adaptability',
+    short: 'Continuous learning is part of the operating system.',
+    prompt: 'Turn your self-directed path into evidence of resilience and growth.',
+    anchors: ['Learning', 'Iteration', 'Range'],
   },
 ];
 
 const challengeCards = [
   'Explain your mission',
-  'Explain the problem you solve',
-  'Explain the value you deliver',
-  'Explain how you are different',
-  'Explain why now is the right time',
-  'Explain what success looks like',
-  'Explain who benefits most',
-  'Explain how you turn ideas into outcomes',
-  'Explain your biggest challenge',
-  'Explain what makes your story credible',
+  'Explain your leadership style to a future employee',
+  'Explain your value to a biotech partner',
+  'Explain why you are different from a pure researcher',
+  'Explain your vision without sounding unrealistic',
+  'Explain your biggest leadership risk',
+  'Explain why your self-taught path is a strength',
+  'Explain what societal impact means concretely',
+  'Explain what makes your founder story memorable',
+  'Explain why now is the right moment',
 ];
 
 const audiences = [
-  { title: 'Investor', cares: 'growth, risk, and return on value' },
-  { title: 'Customer', cares: 'usefulness, clarity, and experience' },
-  { title: 'Partner', cares: 'fit, reliability, and shared outcomes' },
-  { title: 'Employee', cares: 'purpose, culture, and leadership' },
-  { title: 'Community', cares: 'trust, fairness, and lasting benefit' },
-  { title: 'Regulator', cares: 'safety, compliance, and accountability' },
-  { title: 'Advisor', cares: 'focus, execution, and momentum' },
+  { title: 'Investor', cares: 'scalability, timing, and narrative conviction' },
+  { title: 'Scientist', cares: 'credibility, rigor, and intellectual honesty' },
+  { title: 'Employee', cares: 'leadership, culture, and trust' },
+  { title: 'Corporate Partner', cares: 'execution, reliability, and fit' },
+  { title: 'NGO / Global Health Org', cares: 'societal value, access, and grounded impact' },
+  { title: 'Technical Cofounder', cares: 'depth, judgment, and product direction' },
+  { title: 'Customer', cares: 'usefulness, clarity, and outcomes' },
 ];
 
 const constraints = [
+  'Explain without using the word AI',
   'Explain in one sentence',
-  'Use no jargon',
-  'Focus on impact',
-  'Describe a real example',
-  'Frame it for a non-expert',
-  'Start with the problem',
+  'Use a real-world example',
+  'Speak as if you are on stage',
+  'Speak casually over coffee',
+  'Use no technical jargon',
+  'Start with a concrete problem',
   'End with why it matters',
-  'Keep it concrete',
 ];
 
 const antiBsClaims = [
-  'I build with both creativity and execution.',
-  'I deliver value people can actually use.',
-  'My work is grounded in real user outcomes.',
-  'I solve problems that matter now and next.',
-  'I make complex ideas practical and clear.',
-  'I run toward evidence, not just ambition.',
-  'I choose substance over hype.',
-  'I lead with consistency and clarity.',
+  'I combine innovation with practical execution.',
+  'I build across science, technology, and business.',
+  'I care about societal impact.',
+  'I empower people through better systems.',
+  'My self-taught path is a strength.',
+  'I can translate complex ideas into useful products.',
+  'I adapt quickly when the context changes.',
+  'I lead with curiosity and clarity.',
 ];
-
-const defaultDeck = {
-  identityPillars,
-  challengeCards,
-  audiences,
-  constraints,
-  antiBsClaims,
-};
 
 const state = {
   mode: 'classic',
@@ -106,9 +98,6 @@ const state = {
     coherence: 0,
     memorability: 0,
   },
-  deck: { ...defaultDeck },
-  customDeckLoaded: false,
-  deckName: 'default',
 };
 
 const app = document.querySelector('#app');
@@ -117,178 +106,15 @@ function sample(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
 
-function getDeck(key) {
-  return state.deck?.[key] ?? defaultDeck[key] ?? [];
-}
-
-function normalizePillar(item) {
-  if (typeof item === 'string') {
-    const [title, short, prompt, anchors] = item.split('|').map((part) => part.trim());
-    return {
-      title: title || 'Custom pillar',
-      short: short || '',
-      prompt: prompt || '',
-      anchors: anchors ? anchors.split(',').map((value) => value.trim()).filter(Boolean) : [],
-    };
-  }
-
-  if (item && typeof item === 'object') {
-    return {
-      title: item.title || 'Custom pillar',
-      short: item.short || '',
-      prompt: item.prompt || '',
-      anchors: Array.isArray(item.anchors)
-        ? item.anchors
-        : typeof item.anchors === 'string'
-        ? item.anchors.split(',').map((value) => value.trim()).filter(Boolean)
-        : [],
-    };
-  }
-
-  return null;
-}
-
-function normalizeAudience(item) {
-  if (typeof item === 'string') {
-    const [title, cares] = item.split('|').map((part) => part.trim());
-    return {
-      title: title || 'Custom audience',
-      cares: cares || 'something important',
-    };
-  }
-
-  if (item && typeof item === 'object') {
-    return {
-      title: item.title || 'Custom audience',
-      cares: item.cares || 'something important',
-    };
-  }
-
-  return null;
-}
-
-function normalizeTextArray(items) {
-  return Array.isArray(items)
-    ? items.filter(Boolean).map((item) => String(item).trim())
-    : [];
-}
-
-function normalizeDeck(raw) {
-  return {
-    identityPillars: Array.isArray(raw.identityPillars)
-      ? raw.identityPillars.map(normalizePillar).filter(Boolean)
-      : [],
-    challengeCards: normalizeTextArray(raw.challengeCards),
-    audiences: Array.isArray(raw.audiences)
-      ? raw.audiences.map(normalizeAudience).filter(Boolean)
-      : [],
-    constraints: normalizeTextArray(raw.constraints),
-    antiBsClaims: normalizeTextArray(raw.antiBsClaims),
-  };
-}
-
-function parsePlainTextDeck(text) {
-  const lines = text.split(/\r?\n/);
-  const sections = {};
-  let currentKey = null;
-
-  lines.forEach((line) => {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('#')) return;
-
-    const sectionMatch = trimmed.match(/^([a-zA-Z][\w]*)\s*:\s*$/);
-    if (sectionMatch) {
-      currentKey = sectionMatch[1];
-      sections[currentKey] = [];
-      return;
-    }
-
-    if (currentKey) {
-      sections[currentKey].push(trimmed);
-    }
-  });
-
-  return sections;
-}
-
-function parseDeckText(text) {
-  const payload = text.trim();
-  if (!payload) throw new Error('Deck file is empty.');
-
-  try {
-    const json = JSON.parse(payload);
-    return normalizeDeck(json);
-  } catch {
-    return normalizeDeck(parsePlainTextDeck(payload));
-  }
-}
-
-function saveDeck() {
-  if (!state.customDeckLoaded) return;
-  const payload = JSON.stringify({ deck: state.deck, name: state.deckName });
-  localStorage.setItem('founder-identity-game-deck', payload);
-}
-
-function loadSavedDeck() {
-  try {
-    const raw = localStorage.getItem('founder-identity-game-deck');
-    if (!raw) return;
-    const parsed = JSON.parse(raw);
-    if (parsed?.deck) {
-      state.deck = { ...defaultDeck, ...normalizeDeck(parsed.deck) };
-      state.customDeckLoaded = true;
-      state.deckName = parsed.name || 'saved deck';
-    }
-  } catch (error) {
-    console.warn('Unable to load saved deck:', error);
-  }
-}
-
-function resetDeck() {
-  state.deck = { ...defaultDeck };
-  state.customDeckLoaded = false;
-  state.deckName = 'default';
-  localStorage.removeItem('founder-identity-game-deck');
-  render();
-}
-
-function loadDeckFromText(text, name = 'custom deck') {
-  const deck = parseDeckText(text);
-  state.deck = {
-    ...defaultDeck,
-    ...deck,
-  };
-  state.customDeckLoaded = true;
-  state.deckName = name;
-  saveDeck();
-  render();
-}
-
-function promptUploadDeck() {
-  const input = document.querySelector('[data-deck-upload]');
-  if (input) input.click();
-}
-
 function createRound() {
   const previous = state.current || {};
   state.current = {
-    pillar:
-      state.locks.pillar && previous.pillar
-        ? previous.pillar
-        : sample(getDeck('identityPillars')),
-    challenge:
-      state.locks.challenge && previous.challenge
-        ? previous.challenge
-        : sample(getDeck('challengeCards')),
-    audience:
-      state.locks.audience && previous.audience
-        ? previous.audience
-        : sample(getDeck('audiences')),
+    pillar: state.locks.pillar && previous.pillar ? previous.pillar : sample(identityPillars),
+    challenge: state.locks.challenge && previous.challenge ? previous.challenge : sample(challengeCards),
+    audience: state.locks.audience && previous.audience ? previous.audience : sample(audiences),
     constraint:
-      state.locks.constraint && previous.constraint
-        ? previous.constraint
-        : sample(getDeck('constraints')),
-    antiBsClaim: sample(getDeck('antiBsClaims')),
+      state.locks.constraint && previous.constraint ? previous.constraint : sample(constraints),
+    antiBsClaim: sample(antiBsClaims),
   };
   resetTimer();
   render();
@@ -505,11 +331,11 @@ function renderHistory() {
 function render() {
   if (!state.current) {
     state.current = {
-      pillar: sample(getDeck('identityPillars')),
-      challenge: sample(getDeck('challengeCards')),
-      audience: sample(getDeck('audiences')),
-      constraint: sample(getDeck('constraints')),
-      antiBsClaim: sample(getDeck('antiBsClaims')),
+      pillar: sample(identityPillars),
+      challenge: sample(challengeCards),
+      audience: sample(audiences),
+      constraint: sample(constraints),
+      antiBsClaim: sample(antiBsClaims),
     };
   }
 
@@ -549,20 +375,6 @@ function render() {
           <input type="checkbox" data-constraint-toggle ${state.includeConstraint ? 'checked' : ''} />
           Constraint card
         </label>
-      </section>
-
-      <section class="deck-strip" aria-label="Custom deck controls">
-        <div>
-          <p class="section-label">Custom deck</p>
-          <h2>${state.customDeckLoaded ? `Loaded: ${state.deckName}` : 'Using default deck'}</h2>
-          <p>${state.customDeckLoaded ? 'Your uploaded card content is active.' : 'Upload a custom deck file to tailor this experience.'}</p>
-        </div>
-        <div class="header-actions">
-          <a class="secondary-button" href="/deckTemplates/custom-deck-template.txt" download>Download template</a>
-          <button class="secondary-button" data-action="upload-deck">Upload custom deck</button>
-          <button class="secondary-button" data-action="reset-deck" ${state.customDeckLoaded ? '' : 'disabled'}>Reset deck</button>
-        </div>
-        <input type="file" accept=".json,.txt" data-deck-upload hidden />
       </section>
 
       ${state.mode === 'classic' ? renderClassicRound() : renderAntiBsRound()}
@@ -611,8 +423,6 @@ app.addEventListener('click', (event) => {
   if (action === 'pause') pauseTimer();
   if (action === 'reset') resetTimer() || render();
   if (action === 'complete') completeRound();
-  if (action === 'upload-deck') promptUploadDeck();
-  if (action === 'reset-deck') resetDeck();
   if (mode) setMode(mode);
   if (lock) toggleLock(lock);
 });
@@ -632,23 +442,6 @@ app.addEventListener('change', (event) => {
     state.includeConstraint = event.target.checked;
     render();
   }
-
-  if (event.target.matches('[data-deck-upload]')) {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      try {
-        loadDeckFromText(reader.result, file.name);
-      } catch (error) {
-        alert(`Unable to load deck: ${error.message}`);
-      }
-      event.target.value = '';
-    };
-    reader.readAsText(file);
-  }
 });
 
-loadSavedDeck();
 createRound();
