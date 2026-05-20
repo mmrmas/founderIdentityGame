@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/mmrmas/founderIdentityGame/actions/workflows/ci.yml/badge.svg)
 
-A Vite app for practicing founder positioning through randomized identity pillars, challenge cards, audience types, constraint cards, timed speaking rounds, and an Anti-BS proof drill.
+A Vite app for practicing founder positioning through a card game. It shows randomized identity pillars, challenge cards, audience types, constraint cards, timed speaking rounds, and an Anti-BS proof drill.
 
 ## How to play
 
