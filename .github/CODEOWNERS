@@ -1,0 +1,6 @@
+# Default owner for everything
+* @mmrmas
+
+# GitHub Pages config
+/.github/workflows/ @mmrmas
+/docs/ @mmrmas
